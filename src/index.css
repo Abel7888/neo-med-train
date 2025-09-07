@@ -2,41 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* VR Healthcare SaaS Design System - Futuristic & Medical Aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core brand colors - Vibrant futuristic palette */
+    --vr-teal: 189 97% 45%;
+    --vr-purple: 267 89% 58%;
+    --vr-blue: 217 91% 60%;
+    --healthcare-white: 0 0% 100%;
+    --tech-dark: 222 84% 5%;
+    --neon-accent: 184 100% 70%;
+    
+    /* Background system */
+    --background: 222 84% 4%;
+    --background-secondary: 223 47% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system */
+    --card: 223 47% 8%;
+    --card-foreground: 0 0% 98%;
+    --card-hover: 223 47% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Interactive elements */
+    --primary: 189 97% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 189 97% 38%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: 267 89% 58%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 267 89% 50%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(189 97% 45%), hsl(267 89% 58%), hsl(217 91% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(223 47% 8% / 0.8), hsl(223 47% 12% / 0.9));
+    --gradient-button: linear-gradient(135deg, hsl(189 97% 45%), hsl(267 89% 58%));
+    --gradient-accent: linear-gradient(90deg, hsl(184 100% 70%), hsl(189 97% 45%));
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Effects */
+    --glow-teal: 0 0 30px hsl(189 97% 45% / 0.3);
+    --glow-purple: 0 0 30px hsl(267 89% 58% / 0.3);
+    --glow-neon: 0 0 20px hsl(184 100% 70% / 0.4);
+    
+    /* Shadows */
+    --shadow-card: 0 10px 40px hsl(222 84% 5% / 0.3);
+    --shadow-button: 0 5px 25px hsl(189 97% 45% / 0.4);
+    
+    /* Utility colors */
+    --muted: 223 47% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 184 100% 70%;
+    --accent-foreground: 222 84% 5%;
+    --border: 223 47% 15%;
+    --input: 223 47% 12%;
+    --ring: 189 97% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --radius: 12px;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +122,39 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-vr-teal via-vr-purple to-vr-blue bg-clip-text text-transparent;
+  }
+  
+  .section-padding {
+    @apply py-24;
+  }
+  
+  .container-padding {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+}
+
+@layer utilities {
+  .animate-glow {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 20px currentColor;
+  }
+  
+  .backdrop-blur-header {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 }
